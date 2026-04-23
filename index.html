@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Neighborhood Media helps local businesses improve their website, Google presence, and ads so more nearby customers trust them and reach out."
+    />
+    <title>Neighborhood Media | Local Marketing That Drives Customers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Neighborhood Media home">
+          <img
+            src="assets/green-logo-paint.png"
+            alt="Neighborhood Media mark"
+            class="brand-mark"
+          />
+          <span>
+            <strong>Neighborhood Media</strong>
+            <small>Local visibility for businesses that want more customers</small>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#why">Why us</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="text-link" href="#contact">Request audit</a>
+          <a class="button button-primary" href="#contact">Book a call</a>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-controls="mobile-nav"
+            aria-expanded="false"
+          >
+            Menu
+          </button>
+        </div>
+      </header>
+
+      <div class="mobile-nav" id="mobile-nav" hidden>
+        <a href="#services">Services</a>
+        <a href="#why">Why us</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a class="button button-primary" href="#contact">Book a call</a>
+      </div>
+
+      <main id="top">
+        <section class="hero section">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Digital marketing for local businesses</p>
+            <h1>Make your business easier to find and easier to choose.</h1>
+            <p class="lede">
+              We help restaurants and local businesses turn search, website,
+              and ad traffic into more calls, bookings, and inquiries.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">Book a growth call</a>
+              <a class="button button-secondary" href="#services">See how it works</a>
+            </div>
+
+            <div class="hero-trust">
+              <span>Websites</span>
+              <span>Google</span>
+              <span>Ads</span>
+            </div>
+
+            <div class="hero-proof">
+              <article>
+                <strong>Built for owners who need a stronger first impression online.</strong>
+                <p>Clearer messaging, better layout, and a path to contact.</p>
+              </article>
+              <article>
+                <strong>Visitors should know what you do in seconds.</strong>
+                <p>A clearer site and profile create less friction before someone reaches out.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section showreel-section" id="services">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Service sequence</p>
+            <h2>Three screens explain the three services that matter most.</h2>
+            <p class="lede compact">
+              Website, Google, and ads shown in one pinned device with a
+              cleaner scroll path.
+            </p>
+          </div>
+
+          <div class="showreel-grid">
+            <div class="service-list">
+              <article class="service-item reveal" data-scene="website">
+                <p class="service-kicker">Website design</p>
+                <h3>Make the first impression feel current and credible.</h3>
+                <p>Clear layout, sharper copy, and a smoother path to contact.</p>
+              </article>
+
+              <article class="service-item reveal" data-scene="google">
+                <p class="service-kicker">Google Business + local search</p>
+                <h3>Show up looking active, trusted, and ready.</h3>
+                <p>Profile improvements and search signals that help local customers choose you faster.</p>
+              </article>
+
+              <article class="service-item reveal" data-scene="ads">
+                <p class="service-kicker">Meta Ads + growth strategy</p>
+                <h3>Put the right offer in front of the right audience.</h3>
+                <p>Simple campaign structure and clear messaging built to drive action.</p>
+              </article>
+            </div>
+
+            <aside class="showreel-phone reveal">
+              <div class="phone-sticky">
+                <div class="iphone-stage">
+                  <div class="iphone-stage-header">
+                    <span>Scroll through the three screens</span>
+                    <span class="stage-chip">Pinned service preview</span>
+                  </div>
+
+                  <div class="iphone-shell small" aria-label="Interactive service preview">
+                    <div class="iphone-body">
+                      <div class="iphone-notch"></div>
+                      <div class="iphone-status">
+                        <span class="status-dot"></span>
+                        <span>Live preview</span>
+                        <span class="status-time">Updates as you scroll</span>
+                      </div>
+
+                      <div class="iphone-screen dynamic" id="scene-display">
+                        <div class="scene-badge" id="scene-kicker">Website design</div>
+                        <h3 id="scene-title">Make the first impression feel current and credible.</h3>
+                        <p id="scene-body">Clear layout, sharper copy, and a smoother path to contact.</p>
+
+                        <div class="phone-preview" id="scene-panels">
+                          <div class="preview-card preview-website">
+                            <strong>Website flow</strong>
+                            <p>Headline, proof, services, and CTA in the right order.</p>
+                          </div>
+                          <div class="preview-stats">
+                            <div><span>Mobile</span><strong>Clear</strong></div>
+                            <div><span>Trust</span><strong>First</strong></div>
+                            <div><span>Action</span><strong>Easy</strong></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section split-section reveal" id="why">
+          <div class="section-heading">
+            <p class="eyebrow">Why us</p>
+            <h2>More strategic than a freelancer. More disciplined than a basic agency.</h2>
+            <p class="lede compact">
+              We make the marketing easier to understand, easier to trust, and
+              easier to act on.
+            </p>
+          </div>
+
+          <div class="value-stack">
+            <article class="value-card">
+              <strong>Clear positioning</strong>
+              <p>Visitors quickly understand what the business does and why it matters.</p>
+            </article>
+            <article class="value-card">
+              <strong>Built to convert</strong>
+              <p>The page keeps attention moving toward contact instead of scattering it.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="work">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Featured work</p>
+            <h2>Real projects that show client-facing polish and structured execution.</h2>
+          </div>
+
+          <div class="case-study-grid">
+            <article class="case-study reveal">
+              <div class="case-study-copy">
+                <p class="case-label">Meama NYC</p>
+                <h3>Helping a local hospitality brand look as strong online as it does in person.</h3>
+                <p class="case-summary">A polished local presence that supports trust, discovery, and a premium first impression.</p>
+                <div class="case-columns">
+                  <div>
+                    <span>Challenge</span>
+                    <p>Needed a digital presence that matched the brand in person.</p>
+                  </div>
+                  <div>
+                    <span>What I did</span>
+                    <p>Website improvements, local search direction, Google Business optimization, and brand presentation.</p>
+                  </div>
+                  <div>
+                    <span>Outcome</span>
+                    <p>A cleaner local presence that supports discovery and next-step action.</p>
+                  </div>
+                </div>
+                <p class="case-line">Meama NYC now feels like a place people can trust before they ever walk in.</p>
+              </div>
+              <div class="case-study-visual">
+                <div class="case-visual-card case-visual-image">
+                  <span class="case-mini-label">Local presence</span>
+                  <strong>Website, mobile, and search aligned</strong>
+                  <div class="visual-mockup">
+                    <div class="visual-mockup-window">
+                      <div class="mockup-topbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <div class="mockup-content">
+                        <div class="mockup-hero mockup-meama-hero">
+                          <div class="mockup-image mockup-meama-desktop">
+                            <div class="mockup-browser">
+                              <div class="mockup-browser-top">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <div class="mockup-browser-body">
+                                <div class="browser-copy">
+                                  <p>Meama NYC</p>
+                                  <strong>Premium local presence</strong>
+                                  <span>Website improvements + local SEO + GBP</span>
+                                </div>
+                                <div class="browser-layout">
+                                  <div class="browser-column">
+                                    <span>Brand</span>
+                                    <strong>Sharper visual direction</strong>
+                                  </div>
+                                  <div class="browser-column">
+                                    <span>SEO</span>
+                                    <strong>Search support</strong>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mockup-phone">
+                            <div class="mockup-phone-shell">
+                              <div class="mockup-phone-notch"></div>
+                              <div class="mockup-phone-screen">
+                                <p>Mobile first</p>
+                                <strong>Easy to trust on the go</strong>
+                                <div class="mockup-phone-bars">
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-study reveal reverse">
+              <div class="case-study-copy">
+                <p class="case-label">Neighborhood Media OS</p>
+                <h3>A systems layer that shows how the agency thinks about execution, reporting, and scale.</h3>
+                <p class="case-summary">Built to make planning, content, and reporting feel structured, measurable, and ready to scale.</p>
+                <div class="case-columns">
+                  <div>
+                    <span>Challenge</span>
+                    <p>The work needed a better internal structure for planning and execution.</p>
+                  </div>
+                  <div>
+                    <span>What I did</span>
+                    <p>Campaign planning, workflow structure, reporting logic, and execution infrastructure.</p>
+                  </div>
+                  <div>
+                    <span>Outcome</span>
+                    <p>A clearer operating framework that is easier to manage and measure.</p>
+                  </div>
+                </div>
+                <p class="case-line">Neighborhood Media OS makes execution feel repeatable instead of improvised.</p>
+              </div>
+              <div class="case-study-visual">
+                <div class="case-visual-card dark case-visual-image">
+                  <span class="case-mini-label">System thinking</span>
+                  <strong>Planning, workflow, and reporting in one place</strong>
+                  <div class="visual-mockup visual-mockup-dark">
+                    <div class="visual-mockup-window">
+                      <div class="mockup-topbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <div class="mockup-content">
+                        <div class="mockup-dashboard-panel">
+                          <div class="mockup-dashboard-header">
+                            <div>
+                              <span>Ops dashboard</span>
+                              <strong>Neighborhood Media OS</strong>
+                            </div>
+                            <div class="mockup-dashboard-pill">Live system</div>
+                          </div>
+                          <div class="mockup-dashboard">
+                            <div>
+                              <span>Campaigns</span>
+                              <strong>Planned</strong>
+                            </div>
+                            <div>
+                              <span>Content</span>
+                              <strong>Queued</strong>
+                            </div>
+                            <div>
+                              <span>Analytics</span>
+                              <strong>Reviewed</strong>
+                            </div>
+                            <div>
+                              <span>Ops</span>
+                              <strong>Aligned</strong>
+                            </div>
+                          </div>
+                        </div>
+                          <div class="mockup-workflow">
+                            <div class="workflow-column">
+                              <span>Plan</span>
+                              <strong>Strategy</strong>
+                              <p>Campaign priorities and messaging direction.</p>
+                          </div>
+                          <div class="workflow-column">
+                            <span>Build</span>
+                            <strong>Content flow</strong>
+                            <p>Reusable assets and organized execution.</p>
+                          </div>
+                            <div class="workflow-column">
+                              <span>Measure</span>
+                              <strong>Reporting</strong>
+                              <p>Simple metrics for smarter decisions.</p>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="results">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Results and value</p>
+            <h2>What this work should create for the business.</h2>
+          </div>
+
+          <div class="results-grid">
+            <article class="result-card reveal">
+              <span>1</span>
+              <strong>More discovery</strong>
+              <p>Customers can find you faster when search, profile, and site work together.</p>
+            </article>
+            <article class="result-card reveal">
+              <span>2</span>
+              <strong>Stronger trust</strong>
+              <p>A sharper brand and website make the business feel established and real.</p>
+            </article>
+            <article class="result-card reveal">
+              <span>3</span>
+              <strong>Better response rates</strong>
+              <p>Clearer offers and clearer CTA paths make it easier for visitors to take action.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="testimonials">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Testimonials</p>
+            <h2>Natural feedback from owners who needed the business to look more credible online.</h2>
+          </div>
+
+          <div class="testimonial-grid">
+            <blockquote class="testimonial-card reveal">
+              <p>"The site finally feels like our business. It's cleaner, easier to understand, and it makes people trust us faster."</p>
+              <footer>
+                <strong>Maya R.</strong>
+                <span>Restaurant owner</span>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testimonial-card reveal">
+              <p>"Everything feels connected now. The website, the Google profile, and the content all support the same message."</p>
+              <footer>
+                <strong>Jordan T.</strong>
+                <span>Local service business</span>
+              </footer>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="section contact-section reveal" id="contact">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>If you want more customers, let's talk.</h2>
+            <p class="lede compact">
+              Book a call if you want help with your website, search, ads, or
+              brand. If you want a clearer starting point first, request a free
+              audit.
+            </p>
+
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:hello@neighborhoodmedia.com">Book a call</a>
+              <a class="button button-secondary" href="#contact-form">Request a free audit</a>
+            </div>
+
+            <div class="contact-details">
+              <div>
+                <span>Best fit for</span>
+                <strong>Restaurants, local services, and small businesses</strong>
+              </div>
+              <div>
+                <span>Email</span>
+                <strong>hello@neighborhoodmedia.com</strong>
+              </div>
+              <div>
+                <span>Response time</span>
+                <strong>Within 1 business day</strong>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" />
+              </label>
+              <label>
+                Business
+                <input type="text" name="business" placeholder="Business name" />
+              </label>
+            </div>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@company.com" />
+            </label>
+            <label>
+              Website or social link
+              <input type="url" name="website" placeholder="https://" />
+            </label>
+            <label>
+              What do you want to improve?
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Example: better website, more local visibility, stronger branding, more bookings..."
+              ></textarea>
+            </label>
+            <button class="button button-primary submit-button" type="submit">
+              Send my request
+            </button>
+            <p class="form-note">
+              Prefer a quick first step? Send the audit request and we will
+              reply with the clearest next move.
+            </p>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <a class="brand footer-brand" href="#top">
+            <img
+              src="assets/green-logo-paint.png"
+              alt="Neighborhood Media mark"
+              class="brand-mark"
+            />
+            <span>
+              <strong>Neighborhood Media</strong>
+              <small>Local visibility for businesses that want more customers</small>
+            </span>
+          </a>
+        </div>
+
+        <nav aria-label="Footer">
+          <a href="#services">Services</a>
+          <a href="#why">Why us</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="footer-meta">
+          <span>hello@neighborhoodmedia.com</span>
+          <span>Talk through your next move</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
