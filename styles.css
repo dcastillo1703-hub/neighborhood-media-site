@@ -200,8 +200,8 @@ section[id] {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.82fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+  gap: 28px;
   align-items: start;
   justify-items: start;
   min-height: auto;
@@ -334,7 +334,7 @@ section[id] {
   position: relative;
   display: grid;
   gap: 16px;
-  padding: 22px;
+  padding: 24px;
   border-radius: 32px;
   border: 1px solid var(--line);
   background:
@@ -369,7 +369,7 @@ section[id] {
 .hero-panel-head strong {
   display: block;
   margin-top: 8px;
-  max-width: 14ch;
+  max-width: 13ch;
   font-family: "Fraunces", Georgia, serif;
   letter-spacing: -0.05em;
   line-height: 1;
@@ -382,7 +382,7 @@ section[id] {
 }
 
 .hero-panel-card {
-  padding: 14px 15px;
+  padding: 15px 16px;
   border-radius: 20px;
   border: 1px solid rgba(19, 36, 26, 0.08);
   background: rgba(255, 255, 255, 0.76);
@@ -396,11 +396,11 @@ section[id] {
 }
 
 .hero-panel-card:nth-child(2) {
-  margin-left: 14px;
+  margin-left: 12px;
 }
 
 .hero-panel-card:nth-child(3) {
-  margin-left: 28px;
+  margin-left: 24px;
 }
 
 .iphone-stage {
@@ -654,7 +654,7 @@ section[id] {
 }
 
 .showreel-section {
-  min-height: 170vh;
+  min-height: 180vh;
 }
 
 .service-list {
