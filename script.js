@@ -1,74 +1,40 @@
 const navToggle = document.querySelector(".nav-toggle");
 const mobileNav = document.querySelector("#mobile-nav");
 const revealItems = document.querySelectorAll(".reveal");
+const servicesSection = document.querySelector("#services");
 const serviceItems = document.querySelectorAll("[data-scene]");
 const sceneDisplay = document.querySelector("#scene-display");
-const sceneKicker = document.querySelector("#scene-kicker");
-const sceneTitle = document.querySelector("#scene-title");
-const sceneBody = document.querySelector("#scene-body");
-const scenePreview = document.querySelector("#scene-panels");
-let sceneTimer = null;
-let sceneRaf = null;
+const sceneNames = ["website", "google", "ads"];
+let scrollRaf = null;
 
-const scenes = {
-  website: {
-    kicker: "Looking Better",
-    title: "Make the website feel current and credible.",
-    body:
-      "A clear layout and stronger copy make it easier for people to trust you.",
-    preview:
-      '<div class="preview-card"><strong>Homepage flow</strong><p>Headline, proof, service, and CTA in the right order.</p></div><div class="preview-stats"><div><span>Mobile</span><strong>Clear</strong></div><div><span>Trust</span><strong>First</strong></div><div><span>Action</span><strong>Easy</strong></div></div>',
-  },
-  google: {
-    kicker: "Getting Found",
-    title: "Show up when local customers are searching.",
-    body:
-      "A cleaner Google profile and stronger local signals help people choose you faster.",
-    preview:
-      '<div class="preview-card"><strong>Google presence</strong><p>Photos, services, and trust signals that support local search.</p></div><div class="preview-stats"><div><span>Maps</span><strong>Visible</strong></div><div><span>Reviews</span><strong>Strong</strong></div><div><span>Calls</span><strong>Easy</strong></div></div>',
-  },
-  ads: {
-    kicker: "Getting Customers",
-    title: "Turn clicks into calls and bookings.",
-    body:
-      "Simple offers, clear campaigns, and a stronger path to action.",
-    preview:
-      '<div class="preview-card"><strong>Campaign focus</strong><p>Offer, audience, and creative aligned around one goal.</p></div><div class="preview-stats"><div><span>Offer</span><strong>Clear</strong></div><div><span>Audience</span><strong>Local</strong></div><div><span>Action</span><strong>Fast</strong></div></div>',
-  }
-};
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
 
-function setScene(sceneName) {
-  const scene = scenes[sceneName];
-  if (!scene || !sceneDisplay) return;
+function updateShowreel() {
+  if (!servicesSection || !sceneDisplay) return;
 
-  if (sceneTimer) {
-    window.clearTimeout(sceneTimer);
-  }
+  const rect = servicesSection.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || 1;
+  const range = Math.max(1, rect.height - viewportHeight);
+  const progress = clamp((-rect.top) / range, 0, 1);
+  const activeIndex = Math.min(
+    sceneNames.length - 1,
+    Math.round(progress * (sceneNames.length - 1))
+  );
 
-  if (sceneRaf) {
-    window.cancelAnimationFrame(sceneRaf);
-  }
+  sceneDisplay.style.setProperty("--scene-progress", progress.toFixed(4));
 
-  sceneDisplay.classList.add("is-changing");
-
-  sceneTimer = window.setTimeout(() => {
-    if (sceneKicker) sceneKicker.textContent = scene.kicker;
-    if (sceneTitle) sceneTitle.textContent = scene.title;
-    if (sceneBody) sceneBody.textContent = scene.body;
-    if (scenePreview) scenePreview.innerHTML = scene.preview;
-
-    sceneRaf = window.requestAnimationFrame(() => {
-      sceneDisplay.dataset.scene = sceneName;
-      sceneDisplay.classList.remove("is-changing");
-      sceneRaf = null;
-    });
-
-    sceneTimer = null;
-  }, 110);
-
-  serviceItems.forEach((item) => {
-    item.classList.toggle("is-active", item.dataset.scene === sceneName);
+  serviceItems.forEach((item, index) => {
+    item.classList.toggle("is-active", index === activeIndex);
   });
+
+  scrollRaf = null;
+}
+
+function requestShowreelUpdate() {
+  if (scrollRaf) return;
+  scrollRaf = window.requestAnimationFrame(updateShowreel);
 }
 
 function revealOnScroll() {
@@ -88,29 +54,13 @@ function revealOnScroll() {
 }
 
 function observeServices() {
-  if (!serviceItems.length) return;
+  if (!serviceItems.length || !servicesSection || !sceneDisplay) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const active = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  const update = () => requestShowreelUpdate();
 
-      if (active) {
-        setScene(active.target.dataset.scene);
-      }
-    },
-    {
-      threshold: [0.3, 0.5, 0.7],
-      rootMargin: "-10% 0px -44% 0px"
-    }
-  );
-
-  serviceItems.forEach((item) => observer.observe(item));
-
-  serviceItems.forEach((item) => {
-    item.addEventListener("click", () => setScene(item.dataset.scene));
-  });
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update, { passive: true });
+  update();
 }
 
 function setupMobileNav() {
@@ -156,5 +106,4 @@ window.addEventListener("load", () => {
   observeServices();
   setupMobileNav();
   setupForm();
-  setScene("website");
 });

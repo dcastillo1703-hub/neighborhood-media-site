@@ -427,6 +427,13 @@ section[id] {
   will-change: opacity, transform;
 }
 
+.iphone-screen.dynamic {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
 .iphone-screen h3 {
   margin: 12px 0 0;
   max-width: 12ch;
@@ -486,6 +493,41 @@ section[id] {
   font-size: 1.02rem;
 }
 
+.scene-track {
+  display: grid;
+  grid-template-rows: repeat(3, 100%);
+  width: 100%;
+  height: 300%;
+  transform: translate3d(0, calc(var(--scene-progress, 0) * -66.666%), 0);
+  will-change: transform;
+}
+
+.scene-slide {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  min-height: 100%;
+  padding-top: 2px;
+}
+
+.scene-slide-website {
+  background:
+    radial-gradient(circle at top left, rgba(28, 123, 51, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(248, 247, 242, 0.55), rgba(239, 237, 228, 0.18));
+}
+
+.scene-slide-google {
+  background:
+    radial-gradient(circle at top right, rgba(28, 123, 51, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(247, 248, 242, 0.58), rgba(236, 233, 222, 0.18));
+}
+
+.scene-slide-ads {
+  background:
+    radial-gradient(circle at top right, rgba(19, 36, 26, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(247, 245, 239, 0.56), rgba(238, 231, 220, 0.18));
+}
+
 .preview-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -519,31 +561,6 @@ section[id] {
   margin-top: 2px;
   color: var(--green-dark);
   background: rgba(28, 123, 51, 0.08);
-}
-
-.iphone-screen.is-changing {
-  opacity: 0.86;
-  transform: translateY(4px);
-}
-
-.iphone-screen[data-scene="ads"],
-.iphone-screen[data-scene="branding"] {
-  background:
-    radial-gradient(circle at top right, rgba(28, 123, 51, 0.14), transparent 24%),
-    linear-gradient(180deg, #f8f7f3 0%, #f0ede5 100%);
-}
-
-.iphone-screen[data-scene="google"],
-.iphone-screen[data-scene="seo"] {
-  background:
-    radial-gradient(circle at top left, rgba(28, 123, 51, 0.14), transparent 24%),
-    linear-gradient(180deg, #f7f8f2 0%, #ece9de 100%);
-}
-
-.iphone-screen[data-scene="analytics"] {
-  background:
-    radial-gradient(circle at top right, rgba(19, 36, 26, 0.1), transparent 26%),
-    linear-gradient(180deg, #f7f5ef 0%, #eee7dc 100%);
 }
 
 .section-heading {
