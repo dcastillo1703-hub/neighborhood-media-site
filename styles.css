@@ -200,9 +200,9 @@ section[id] {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 760px);
-  gap: 0;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.82fr);
+  gap: 34px;
+  align-items: start;
   justify-items: start;
   min-height: auto;
   padding-top: 28px;
@@ -327,6 +327,80 @@ section[id] {
 
 .hero-visual {
   min-width: 0;
+  width: 100%;
+}
+
+.hero-panel {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border-radius: 32px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at top left, rgba(28, 123, 51, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(28, 123, 51, 0.07), transparent 28%),
+    rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: auto -18% -22% auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 123, 51, 0.14), transparent 68%);
+  pointer-events: none;
+}
+
+.hero-panel-head span,
+.hero-panel-card span {
+  display: inline-flex;
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-panel-head strong {
+  display: block;
+  margin-top: 8px;
+  max-width: 14ch;
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-size: clamp(1.55rem, 2.4vw, 2.1rem);
+}
+
+.hero-panel-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.hero-panel-card {
+  padding: 14px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(19, 36, 26, 0.08);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.hero-panel-card strong {
+  display: block;
+  margin-top: 8px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.hero-panel-card:nth-child(2) {
+  margin-left: 14px;
+}
+
+.hero-panel-card:nth-child(3) {
+  margin-left: 28px;
 }
 
 .iphone-stage {
@@ -434,19 +508,24 @@ section[id] {
   min-height: 0;
 }
 
+.phone-preview {
+  margin-top: 18px;
+}
+
 .iphone-screen h3 {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   max-width: 12ch;
   font-family: "Fraunces", Georgia, serif;
-  letter-spacing: -0.05em;
-  line-height: 0.98;
+  letter-spacing: -0.045em;
+  line-height: 1;
   font-size: clamp(1.7rem, 3vw, 2.25rem);
 }
 
 .iphone-screen p {
   max-width: 30ch;
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
+  line-height: 1.5;
 }
 
 .phone-preview,
@@ -572,6 +651,10 @@ section[id] {
   grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.82fr);
   gap: 28px;
   align-items: start;
+}
+
+.showreel-section {
+  min-height: 170vh;
 }
 
 .service-list {
@@ -1467,6 +1550,10 @@ section[id] {
     position: static;
   }
 
+  .showreel-section {
+    min-height: auto;
+  }
+
   .iphone-shell {
     max-width: 100%;
   }
@@ -1481,6 +1568,10 @@ section[id] {
 
   .showreel-grid {
     gap: 24px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1515,6 +1606,15 @@ section[id] {
   .hero-copy h1 {
     max-width: 11ch;
     font-size: clamp(2.95rem, 12vw, 4.8rem);
+  }
+
+  .hero-panel {
+    padding: 18px;
+  }
+
+  .hero-panel-card:nth-child(2),
+  .hero-panel-card:nth-child(3) {
+    margin-left: 0;
   }
 
   .form-row,
