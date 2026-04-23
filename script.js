@@ -1,110 +1,18 @@
 const navToggle = document.querySelector(".nav-toggle");
 const mobileNav = document.querySelector("#mobile-nav");
 const revealItems = document.querySelectorAll(".reveal");
-const servicesSection = document.querySelector("#services");
-const serviceItems = document.querySelectorAll("[data-scene]");
-const sceneDisplay = document.querySelector("#scene-display");
-const sceneNames = ["website", "google", "ads"];
-let showreelStart = 0;
-let showreelEnd = 0;
-let targetProgress = 0;
-let currentProgress = 0;
-let rafId = null;
-let touchStartY = 0;
-let touchActive = false;
+const modal = document.querySelector("#case-modal");
+const modalLabel = document.querySelector("#case-modal-label");
+const modalTitle = document.querySelector("#case-modal-title");
+const modalIntro = document.querySelector("#case-modal-intro");
+const modalBody = document.querySelector("#case-modal-body");
+const openers = document.querySelectorAll("[data-modal-open]");
+const templates = {
+  meama: document.querySelector("#template-meama"),
+  os: document.querySelector("#template-os"),
+};
 
-function clamp(value, min, max) {
-  return Math.min(max, Math.max(min, value));
-}
-
-function updateShowreelBounds() {
-  if (!servicesSection) return;
-
-  const pageY = window.scrollY || window.pageYOffset || 0;
-  const top = servicesSection.getBoundingClientRect().top + pageY;
-  const viewportHeight = window.innerHeight || 1;
-
-  showreelStart = top - 90;
-  showreelEnd = top + servicesSection.offsetHeight - viewportHeight + 90;
-}
-
-function applyShowreelProgress() {
-  currentProgress += (targetProgress - currentProgress) * 0.14;
-
-  if (Math.abs(targetProgress - currentProgress) < 0.001) {
-    currentProgress = targetProgress;
-    rafId = null;
-  } else {
-    rafId = window.requestAnimationFrame(applyShowreelProgress);
-  }
-
-  if (sceneDisplay) {
-    sceneDisplay.style.setProperty("--scene-progress", currentProgress.toFixed(4));
-  }
-
-  const activeIndex = Math.min(
-    sceneNames.length - 1,
-    Math.round(currentProgress * (sceneNames.length - 1))
-  );
-
-  serviceItems.forEach((item, index) => {
-    item.classList.toggle("is-active", index === activeIndex);
-  });
-}
-
-function setTargetProgress(nextProgress) {
-  targetProgress = clamp(nextProgress, 0, 1);
-  if (!rafId) {
-    rafId = window.requestAnimationFrame(applyShowreelProgress);
-  }
-}
-
-function isInShowreelZone() {
-  const y = window.scrollY || window.pageYOffset || 0;
-  return y >= showreelStart && y <= showreelEnd;
-}
-
-function onWheel(event) {
-  if (!servicesSection || !sceneDisplay || !isInShowreelZone()) return;
-
-  const atStart = currentProgress <= 0.001;
-  const atEnd = currentProgress >= 0.999;
-  const direction = Math.sign(event.deltaY);
-
-  if ((direction > 0 && atEnd) || (direction < 0 && atStart)) {
-    return;
-  }
-
-  event.preventDefault();
-  const delta = event.deltaY / ((window.innerHeight || 1) * 1.15);
-  setTargetProgress(currentProgress + delta);
-}
-
-function onTouchStart(event) {
-  if (event.touches.length !== 1) return;
-  touchStartY = event.touches[0].clientY;
-  touchActive = isInShowreelZone();
-}
-
-function onTouchMove(event) {
-  if (!touchActive || !servicesSection || !sceneDisplay || event.touches.length !== 1) return;
-
-  const currentY = event.touches[0].clientY;
-  const deltaY = touchStartY - currentY;
-  const direction = Math.sign(deltaY);
-  const atStart = currentProgress <= 0.001;
-  const atEnd = currentProgress >= 0.999;
-
-  if ((direction > 0 && atEnd) || (direction < 0 && atStart)) {
-    touchStartY = currentY;
-    return;
-  }
-
-  event.preventDefault();
-  const delta = deltaY / ((window.innerHeight || 1) * 1.05);
-  setTargetProgress(currentProgress + delta);
-  touchStartY = currentY;
-}
+let lastModalTrigger = null;
 
 function revealOnScroll() {
   const observer = new IntersectionObserver(
@@ -122,22 +30,6 @@ function revealOnScroll() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-function observeServices() {
-  if (!serviceItems.length || !servicesSection || !sceneDisplay) return;
-
-  updateShowreelBounds();
-  setTargetProgress(0);
-
-  window.addEventListener("scroll", updateShowreelBounds, { passive: true });
-  window.addEventListener("resize", updateShowreelBounds, { passive: true });
-  window.addEventListener("wheel", onWheel, { passive: false });
-  window.addEventListener("touchstart", onTouchStart, { passive: true });
-  window.addEventListener("touchmove", onTouchMove, { passive: false });
-  window.addEventListener("touchend", () => {
-    touchActive = false;
-  });
-}
-
 function setupMobileNav() {
   if (!navToggle || !mobileNav) return;
 
@@ -152,6 +44,78 @@ function setupMobileNav() {
       mobileNav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
       mobileNav.hidden = true;
+    }
+  });
+}
+
+function setModalContent(key) {
+  const definitions = {
+    meama: {
+      label: "Meama NYC",
+      title: "A clearer local presence for a hospitality brand.",
+      intro:
+        "A case study focused on website presentation, Google visibility, and the small details that make a local business feel worth choosing.",
+    },
+    os: {
+      label: "Neighborhood Media OS",
+      title: "A system view for planning, content, and reporting.",
+      intro:
+        "A more advanced look at how the agency organizes execution, content flow, and measurable work across a single system.",
+    },
+  };
+
+  const template = templates[key];
+  const definition = definitions[key];
+
+  if (!template || !definition || !modal || !modalBody) return;
+
+  modalLabel.textContent = definition.label;
+  modalTitle.textContent = definition.title;
+  modalIntro.textContent = definition.intro;
+  modalBody.innerHTML = "";
+  modalBody.appendChild(template.content.cloneNode(true));
+}
+
+function openModal(key, trigger) {
+  if (!modal) return;
+
+  lastModalTrigger = trigger || null;
+  setModalContent(key);
+  modal.hidden = false;
+  modal.setAttribute("aria-hidden", "false");
+  document.documentElement.style.overflow = "hidden";
+}
+
+function closeModal() {
+  if (!modal) return;
+
+  modal.hidden = true;
+  modal.setAttribute("aria-hidden", "true");
+  document.documentElement.style.overflow = "";
+
+  if (lastModalTrigger && typeof lastModalTrigger.focus === "function") {
+    lastModalTrigger.focus();
+  }
+}
+
+function setupCaseModals() {
+  if (!modal || !modalBody) return;
+
+  openers.forEach((button) => {
+    button.addEventListener("click", () => {
+      openModal(button.dataset.modalOpen, button);
+    });
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.matches("[data-modal-close]")) {
+      closeModal();
+    }
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeModal();
     }
   });
 }
@@ -178,7 +142,7 @@ function setupForm() {
 
 window.addEventListener("load", () => {
   revealOnScroll();
-  observeServices();
   setupMobileNav();
+  setupCaseModals();
   setupForm();
 });
