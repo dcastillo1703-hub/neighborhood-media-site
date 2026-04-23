@@ -289,21 +289,11 @@ section[id] {
   font-weight: 700;
 }
 
-.hero-proof {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 24px;
-}
-
-.hero-proof article,
-.metric-grid div,
 .value-card,
 .result-card,
 .testimonial-card,
 .contact-details div,
 .contact-form,
-.stats-panel,
 .service-item,
 .case-study,
 .case-visual-card {
@@ -313,12 +303,6 @@ section[id] {
   box-shadow: var(--shadow);
 }
 
-.hero-proof article {
-  padding: 18px;
-  border-radius: var(--radius-lg);
-}
-
-.hero-proof strong,
 .value-card strong,
 .result-card strong,
 .stats-row span,
@@ -328,13 +312,11 @@ section[id] {
   letter-spacing: -0.03em;
 }
 
-.hero-proof p,
 .value-card p,
 .result-card p,
 .testimonial-card p,
 .contact-details span,
 .form-note,
-.stats-panel p,
 .service-item p,
 .case-columns p,
 .case-visual-card p {
@@ -468,8 +450,7 @@ section[id] {
 }
 
 .preview-card,
-.scene-panel,
-.phone-metrics > div {
+.scene-panel {
   border-radius: 20px;
   border: 1px solid rgba(19, 36, 26, 0.08);
   background: rgba(255, 255, 255, 0.8);
@@ -481,7 +462,6 @@ section[id] {
 
 .preview-card,
 .scene-panel,
-.phone-metrics > div,
 .preview-stats div {
   transition:
     transform 220ms ease,
@@ -497,13 +477,12 @@ section[id] {
 }
 
 .preview-card p,
-.scene-panel span,
-.phone-metrics p {
+.scene-panel span {
   margin: 6px 0 0;
   color: var(--muted);
 }
 
-.preview-overview strong {
+.preview-website strong {
   font-size: 1.02rem;
 }
 
@@ -520,8 +499,7 @@ section[id] {
   background: rgba(250, 249, 245, 0.9);
 }
 
-.preview-stats span,
-.phone-metrics span {
+.preview-stats span {
   display: block;
   color: var(--green-dark);
   font-size: 0.8rem;
@@ -534,27 +512,6 @@ section[id] {
   margin-top: 8px;
   display: block;
   letter-spacing: -0.03em;
-}
-
-.phone-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.phone-metrics > div {
-  padding: 12px;
-  text-align: center;
-}
-
-.phone-metrics span {
-  font-size: 0.95rem;
-}
-
-.phone-metrics p {
-  margin: 6px 0 0;
-  font-size: 0.9rem;
 }
 
 .scene-badge {
@@ -587,60 +544,6 @@ section[id] {
   background:
     radial-gradient(circle at top right, rgba(19, 36, 26, 0.1), transparent 26%),
     linear-gradient(180deg, #f7f5ef 0%, #eee7dc 100%);
-}
-
-.stage-footnote {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.metrics-strip {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 24px;
-  padding: 28px;
-  border-radius: 30px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: var(--shadow);
-}
-
-.metric-label {
-  display: inline-flex;
-  margin-bottom: 12px;
-  color: var(--green-dark);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.metrics-strip p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.04rem;
-}
-
-.metric-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.metric-grid div {
-  padding: 18px;
-  border-radius: 22px;
-}
-
-.metric-grid strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-.metric-grid span {
-  color: var(--muted);
 }
 
 .section-heading {
@@ -1336,16 +1239,6 @@ section[id] {
   font-size: 1.08rem;
 }
 
-.stats-panel {
-  margin-top: 18px;
-  padding: 24px;
-  border-radius: 28px;
-}
-
-.stats-panel strong {
-  font-size: 1.08rem;
-}
-
 .stats-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1607,8 +1500,6 @@ section[id] {
     font-size: clamp(2.95rem, 12vw, 4.8rem);
   }
 
-  .hero-proof,
-  .metric-grid,
   .form-row,
   .results-grid,
   .testimonial-grid,
@@ -1639,13 +1530,11 @@ section[id] {
 
   .iphone-stage,
   .contact-form,
-  .stats-panel,
   .service-item,
   .case-study,
   .testimonial-card,
   .result-card,
-  .value-card,
-  .metrics-strip {
+  .value-card {
     padding: 20px;
   }
 
@@ -1751,16 +1640,6 @@ section[id] {
   .iphone-shell.small {
     border-radius: 30px;
     height: clamp(540px, 66vh, 620px);
-  }
-
-  .phone-metrics {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .phone-metrics > div {
-    padding: 10px;
   }
 
   .preview-stats {

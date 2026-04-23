@@ -12,26 +12,26 @@ let sceneRaf = null;
 
 const scenes = {
   website: {
-    kicker: "Website design",
-    title: "Make the site feel current, premium, and easy to act on.",
+    kicker: "Looking Better",
+    title: "Make the website feel current and credible.",
     body:
-      "Strong layout, better copy, and a mobile-first flow that makes it easier for visitors to contact you.",
+      "A clear layout and stronger copy make it easier for people to trust you.",
     preview:
-      '<div class="preview-card"><strong>Homepage flow</strong><p>Headline, proof, services, and CTA in the right order.</p></div><div class="preview-stats"><div><span>UX</span><strong>Clear</strong></div><div><span>Mobile</span><strong>Ready</strong></div><div><span>CTA</span><strong>Visible</strong></div></div>',
+      '<div class="preview-card"><strong>Homepage flow</strong><p>Headline, proof, service, and CTA in the right order.</p></div><div class="preview-stats"><div><span>Mobile</span><strong>Clear</strong></div><div><span>Trust</span><strong>First</strong></div><div><span>Action</span><strong>Easy</strong></div></div>',
   },
   google: {
-    kicker: "Google Business + local search",
-    title: "Show up looking active, trusted, and ready.",
+    kicker: "Getting Found",
+    title: "Show up when local customers are searching.",
     body:
-      "Profile improvements and search signals help local customers choose you faster.",
+      "A cleaner Google profile and stronger local signals help people choose you faster.",
     preview:
       '<div class="preview-card"><strong>Google presence</strong><p>Photos, services, and trust signals that support local search.</p></div><div class="preview-stats"><div><span>Maps</span><strong>Visible</strong></div><div><span>Reviews</span><strong>Strong</strong></div><div><span>Calls</span><strong>Easy</strong></div></div>',
   },
   ads: {
-    kicker: "Meta Ads + growth strategy",
-    title: "Put the right offer in front of the right audience.",
+    kicker: "Getting Customers",
+    title: "Turn clicks into calls and bookings.",
     body:
-      "Simple campaign structure and clear messaging built to drive action.",
+      "Simple offers, clear campaigns, and a stronger path to action.",
     preview:
       '<div class="preview-card"><strong>Campaign focus</strong><p>Offer, audience, and creative aligned around one goal.</p></div><div class="preview-stats"><div><span>Offer</span><strong>Clear</strong></div><div><span>Audience</span><strong>Local</strong></div><div><span>Action</span><strong>Fast</strong></div></div>',
   }
