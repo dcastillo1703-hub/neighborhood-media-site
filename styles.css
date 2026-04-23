@@ -200,8 +200,8 @@ section[id] {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 0.94fr) minmax(340px, 1.06fr);
+  gap: 30px;
   align-items: start;
   justify-items: start;
   min-height: auto;
@@ -239,7 +239,7 @@ section[id] {
 }
 
 .hero-copy h1 {
-  max-width: 10ch;
+  max-width: 12ch;
   font-size: clamp(3.4rem, 7vw, 6.4rem);
 }
 
@@ -266,14 +266,14 @@ section[id] {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 26px;
+  margin-top: 22px;
 }
 
 .hero-trust {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .hero-trust span,
@@ -643,7 +643,7 @@ section[id] {
 }
 
 .section-heading {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .showreel-grid {
@@ -654,16 +654,19 @@ section[id] {
 }
 
 .showreel-section {
-  min-height: 180vh;
+  min-height: 285vh;
 }
 
 .service-list {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .service-item {
-  padding: 22px 22px 21px;
+  display: grid;
+  min-height: 168px;
+  align-content: start;
+  padding: 20px 22px;
   border-radius: 28px;
   transition:
     transform 180ms ease,
@@ -705,7 +708,7 @@ section[id] {
 .case-study-copy h3 {
   margin: 0;
   font-family: "Fraunces", Georgia, serif;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.045em;
   line-height: 1.04;
   font-size: clamp(1.38rem, 2vw, 1.95rem);
 }
@@ -740,6 +743,47 @@ section[id] {
 
 .phone-preview.dynamic {
   margin-top: 18px;
+}
+
+.showreel-followup {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.story-card {
+  display: grid;
+  min-height: 72vh;
+  align-content: center;
+  padding: 30px;
+  border-radius: 32px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at top left, rgba(28, 123, 51, 0.1), transparent 26%),
+    rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow);
+}
+
+.story-card-alt {
+  background:
+    radial-gradient(circle at top right, rgba(28, 123, 51, 0.08), transparent 28%),
+    rgba(255, 255, 255, 0.7);
+}
+
+.story-card h3 {
+  max-width: 14ch;
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.story-card p {
+  max-width: 52ch;
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.58;
 }
 
 .scene-panels {
@@ -1667,6 +1711,22 @@ section[id] {
     min-height: 0;
   }
 
+  .showreel-followup {
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .story-card {
+    min-height: auto;
+    padding: 22px;
+    border-radius: 28px;
+  }
+
+  .story-card h3 {
+    max-width: 16ch;
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
   .case-visual-image {
     min-height: auto;
   }
@@ -1757,6 +1817,10 @@ section[id] {
   .iphone-shell.small {
     border-radius: 30px;
     height: clamp(540px, 66vh, 620px);
+  }
+
+  .story-card p {
+    font-size: 0.98rem;
   }
 
   .preview-stats {
