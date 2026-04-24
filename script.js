@@ -37,22 +37,25 @@ function setupMobileNav() {
 }
 
 function setupForm() {
-  const form = document.querySelector(".contact-form");
-  if (!form) return;
+  const forms = document.querySelectorAll(".lead-form");
+  if (!forms.length) return;
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const submitButton = form.querySelector("button[type='submit']");
-    const originalText = submitButton.textContent;
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector("button[type='submit']");
+      if (!submitButton) return;
+      const originalText = submitButton.textContent;
 
-    submitButton.textContent = "Request received";
-    submitButton.disabled = true;
+      submitButton.textContent = "Request received";
+      submitButton.disabled = true;
 
-    window.setTimeout(() => {
-      submitButton.textContent = originalText;
-      submitButton.disabled = false;
-      form.reset();
-    }, 2200);
+      window.setTimeout(() => {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+        form.reset();
+      }, 2200);
+    });
   });
 }
 
