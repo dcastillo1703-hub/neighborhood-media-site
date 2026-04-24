@@ -401,7 +401,7 @@ section[id] {
   display: flex;
   gap: 16px;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .system-panel-top-copy {
@@ -444,7 +444,7 @@ section[id] {
   width: min(100%, 520px);
   aspect-ratio: 9 / 21.5;
   align-self: center;
-  padding: 18px;
+  padding: 20px;
   border-radius: 40px;
   border: 1px solid rgba(19, 36, 26, 0.08);
   background:
@@ -457,7 +457,7 @@ section[id] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   min-height: 0;
   width: min(100%, 460px);
   margin: 0 auto;
@@ -568,7 +568,7 @@ section[id] {
     radial-gradient(circle at top left, rgba(28, 123, 51, 0.08), transparent 28%),
     rgba(255, 255, 255, 0.7);
   box-shadow: var(--shadow);
-  align-content: space-between;
+  align-content: start;
 }
 
 .service-note span {
@@ -973,7 +973,7 @@ section[id] {
 
 .brand-carousel-content {
   width: min(var(--container), calc(100vw - 40px));
-  margin: 0 auto 14px;
+  margin: 0 auto 18px;
   padding: 0 20px;
 }
 
@@ -996,14 +996,14 @@ section[id] {
   align-items: center;
   gap: 0;
   width: max-content;
-  animation: marquee-right 24s linear infinite;
-  animation-delay: -8s;
+  animation: marquee-right 34s linear infinite;
+  animation-delay: -12s;
 }
 
 .logo-marquee-logo {
   display: block;
   flex: 0 0 auto;
-  height: 132px;
+  height: 168px;
   width: auto;
   margin-right: 0;
   padding: 0;
@@ -1343,7 +1343,7 @@ section[id] {
   }
 
   .logo-marquee-logo {
-    height: 104px;
+    height: 124px;
   }
 
   .hero-actions,
@@ -1374,7 +1374,7 @@ section[id] {
   }
 
   .logo-marquee-logo {
-    height: 90px;
+    height: 106px;
   }
 
   .case-summary,
