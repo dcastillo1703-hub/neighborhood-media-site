@@ -1339,6 +1339,17 @@ section[id] {
     grid-template-columns: 1fr;
   }
 
+  .meama-desktop-frame {
+    display: none;
+  }
+
+  .meama-phone-frame {
+    width: 100%;
+    max-width: 430px;
+    min-height: 540px;
+    justify-self: center;
+  }
+
   .meama-preview-stage {
     padding: 14px;
   }
@@ -1474,6 +1485,10 @@ section[id] {
 
   .meama-preview-stage {
     padding: 12px;
+  }
+
+  .meama-phone-frame {
+    min-height: 500px;
   }
 
   .meama-desktop-frame iframe,
