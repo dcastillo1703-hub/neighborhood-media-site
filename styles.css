@@ -1011,6 +1011,8 @@ section[id] {
   display: flex;
   align-items: center;
   gap: 0;
+  flex: 0 0 auto;
+  width: max-content;
 }
 
 .logo-marquee-logo {
@@ -1381,6 +1383,10 @@ section[id] {
     height: 124px;
   }
 
+  .logo-marquee-logo-meama {
+    height: 138px;
+  }
+
   .hero-actions,
   .contact-actions {
     width: 100%;
@@ -1436,6 +1442,10 @@ section[id] {
 
   .logo-marquee-logo {
     height: 106px;
+  }
+
+  .logo-marquee-logo-meama {
+    height: 118px;
   }
 
   .case-summary,
